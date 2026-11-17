@@ -1,0 +1,568 @@
+{
+  "name": "jetbrains-style-changes",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "0.2.4",
+  "publisher": "wangriyu",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.107.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Other"
+  ],
+  "keywords": [
+    "git",
+    "multi-repo",
+    "changelist",
+    "changes",
+    "diff",
+    "stash",
+    "jetbrains"
+  ],
+  "main": "./src/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "extensionDependencies": [
+    "vscode.git"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onView:repolens.changes"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false
+    },
+    "virtualWorkspaces": {
+      "supported": false
+    }
+  },
+  "contributes": {
+    "views": {
+      "scm": [
+        {
+          "id": "repolens.changes",
+          "name": "%view.allChanges%",
+          "contextualTitle": "%view.contextualTitle%",
+          "icon": "$(git-compare)",
+          "visibility": "visible"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "repolens.focus",
+        "title": "%command.focus%",
+        "category": "%command.category%",
+        "icon": "$(git-compare)"
+      },
+      {
+        "command": "repolens.refresh",
+        "title": "%command.refresh%",
+        "category": "%command.category%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "repolens.expandAll",
+        "title": "%command.expandAll%",
+        "category": "%command.category%",
+        "icon": "$(expand-all)"
+      },
+      {
+        "command": "repolens.filter",
+        "title": "%command.filter%",
+        "category": "%command.category%",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "repolens.clearFilter",
+        "title": "%command.clearFilter%",
+        "category": "%command.category%",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "repolens.showTree",
+        "title": "%command.showTree%",
+        "category": "%command.category%",
+        "icon": "$(list-tree)"
+      },
+      {
+        "command": "repolens.showList",
+        "title": "%command.showList%",
+        "category": "%command.category%",
+        "icon": "$(list-flat)"
+      },
+      {
+        "command": "repolens.openChange",
+        "title": "%command.openChange%",
+        "category": "%command.category%",
+        "icon": "$(compare-changes)"
+      },
+      {
+        "command": "repolens.openFile",
+        "title": "%command.openFile%",
+        "category": "%command.category%",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "repolens.stage",
+        "title": "%command.stage%",
+        "category": "%command.category%",
+        "icon": "$(add)"
+      },
+      {
+        "command": "repolens.discard",
+        "title": "%command.discard%",
+        "category": "%command.category%",
+        "icon": "$(discard)"
+      },
+      {
+        "command": "repolens.unstage",
+        "title": "%command.unstage%",
+        "category": "%command.category%",
+        "icon": "$(remove)"
+      },
+      {
+        "command": "repolens.stageSelected",
+        "title": "%command.stageSelected%",
+        "category": "%command.category%",
+        "icon": "$(add)"
+      },
+      {
+        "command": "repolens.unstageSelected",
+        "title": "%command.unstageSelected%",
+        "category": "%command.category%",
+        "icon": "$(remove)"
+      },
+      {
+        "command": "repolens.clearSelection",
+        "title": "%command.clearSelection%",
+        "category": "%command.category%",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "repolens.commit",
+        "title": "%command.commit%",
+        "category": "%command.category%",
+        "icon": "$(check)"
+      },
+      {
+        "command": "repolens.createStash",
+        "title": "%command.createStash%",
+        "category": "%command.category%",
+        "icon": "$(archive)"
+      },
+      {
+        "command": "repolens.applyStash",
+        "title": "%command.applyStash%",
+        "category": "%command.category%",
+        "icon": "$(unarchive)"
+      },
+      {
+        "command": "repolens.previousChange",
+        "title": "%command.previousChange%",
+        "category": "%command.category%",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "repolens.nextChange",
+        "title": "%command.nextChange%",
+        "category": "%command.category%",
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "repolens.showDiagnostics",
+        "title": "%command.showDiagnostics%",
+        "category": "%command.category%",
+        "icon": "$(pulse)"
+      },
+      {
+        "command": "repolens.restoreSourceControlLayout",
+        "title": "%command.restoreSourceControlLayout%",
+        "category": "%command.category%",
+        "icon": "$(layout-sidebar-left)"
+      },
+      {
+        "command": "repolens.groupBy",
+        "title": "%command.groupBy%",
+        "category": "%command.category%",
+        "icon": "$(layers)"
+      },
+      {
+        "command": "repolens.createChangelist",
+        "title": "%command.createChangelist%",
+        "category": "%command.category%",
+        "icon": "$(add)"
+      },
+      {
+        "command": "repolens.renameChangelist",
+        "title": "%command.renameChangelist%",
+        "category": "%command.category%",
+        "icon": "$(edit)"
+      },
+      {
+        "command": "repolens.deleteChangelist",
+        "title": "%command.deleteChangelist%",
+        "category": "%command.category%",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "repolens.activateChangelist",
+        "title": "%command.activateChangelist%",
+        "category": "%command.category%",
+        "icon": "$(check)"
+      },
+      {
+        "command": "repolens.moveToChangelist",
+        "title": "%command.moveToChangelist%",
+        "category": "%command.category%",
+        "icon": "$(arrow-right)"
+      },
+      {
+        "command": "repolens.commitSelected",
+        "title": "%command.commitSelected%",
+        "category": "%command.category%",
+        "icon": "$(check)"
+      },
+      {
+        "command": "repolens.stashSelected",
+        "title": "%command.stashSelected%",
+        "category": "%command.category%",
+        "icon": "$(archive)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "repolens.refresh",
+          "when": "view == repolens.changes",
+          "group": "navigation@10"
+        },
+        {
+          "command": "repolens.filter",
+          "when": "view == repolens.changes",
+          "group": "navigation@20"
+        },
+        {
+          "command": "repolens.showList",
+          "when": "view == repolens.changes && repolens.layout == tree",
+          "group": "navigation@30"
+        },
+        {
+          "command": "repolens.showTree",
+          "when": "view == repolens.changes && repolens.layout == list",
+          "group": "navigation@30"
+        },
+        {
+          "command": "repolens.expandAll",
+          "when": "view == repolens.changes",
+          "group": "navigation@40"
+        },
+        {
+          "command": "repolens.stageSelected",
+          "when": "view == repolens.changes && repolens.hasWorkingSelection",
+          "group": "navigation@1"
+        },
+        {
+          "command": "repolens.unstageSelected",
+          "when": "view == repolens.changes && repolens.hasIndexSelection",
+          "group": "navigation@2"
+        },
+        {
+          "command": "repolens.clearSelection",
+          "when": "view == repolens.changes && repolens.hasSelection",
+          "group": "3_selection@3"
+        },
+        {
+          "command": "repolens.clearFilter",
+          "when": "view == repolens.changes && repolens.hasFilter",
+          "group": "2_filter@1"
+        },
+        {
+          "command": "repolens.commit",
+          "when": "view == repolens.changes",
+          "group": "4_repository@1"
+        },
+        {
+          "command": "repolens.createStash",
+          "when": "view == repolens.changes",
+          "group": "4_repository@2"
+        },
+        {
+          "command": "repolens.applyStash",
+          "when": "view == repolens.changes",
+          "group": "4_repository@3"
+        },
+        {
+          "command": "repolens.showDiagnostics",
+          "when": "view == repolens.changes",
+          "group": "5_tools@1"
+        },
+        {
+          "command": "repolens.groupBy",
+          "when": "view == repolens.changes",
+          "group": "navigation@25"
+        },
+        {
+          "command": "repolens.createChangelist",
+          "when": "view == repolens.changes",
+          "group": "6_changelists@1"
+        },
+        {
+          "command": "repolens.moveToChangelist",
+          "when": "view == repolens.changes && repolens.hasSelection",
+          "group": "3_selection@1"
+        },
+        {
+          "command": "repolens.commitSelected",
+          "when": "view == repolens.changes && repolens.hasSelection",
+          "group": "navigation@3"
+        },
+        {
+          "command": "repolens.stashSelected",
+          "when": "view == repolens.changes && repolens.hasSelection",
+          "group": "3_selection@2"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "repolens.stage",
+          "when": "view == repolens.changes && (viewItem == repolens.working)",
+          "group": "inline@1"
+        },
+        {
+          "command": "repolens.discard",
+          "when": "view == repolens.changes && (viewItem == repolens.working)",
+          "group": "inline@2"
+        },
+        {
+          "command": "repolens.unstage",
+          "when": "view == repolens.changes && (viewItem == repolens.index)",
+          "group": "inline@1"
+        },
+        {
+          "command": "repolens.commit",
+          "when": "view == repolens.changes && (viewItem == repolens.repoStaged)",
+          "group": "inline@1"
+        },
+        {
+          "command": "repolens.openChange",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.conflict || viewItem == repolens.submodule)",
+          "group": "1_open@1"
+        },
+        {
+          "command": "repolens.openFile",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.conflict || viewItem == repolens.submodule)",
+          "group": "1_open@2"
+        },
+        {
+          "command": "repolens.stage",
+          "when": "view == repolens.changes && (viewItem == repolens.working)",
+          "group": "2_modify@1"
+        },
+        {
+          "command": "repolens.discard",
+          "when": "view == repolens.changes && (viewItem == repolens.working)",
+          "group": "2_modify@2"
+        },
+        {
+          "command": "repolens.unstage",
+          "when": "view == repolens.changes && (viewItem == repolens.index)",
+          "group": "2_modify@1"
+        },
+        {
+          "command": "repolens.previousChange",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.conflict || viewItem == repolens.submodule)",
+          "group": "3_navigation@1"
+        },
+        {
+          "command": "repolens.nextChange",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.conflict || viewItem == repolens.submodule)",
+          "group": "3_navigation@2"
+        },
+        {
+          "command": "repolens.commit",
+          "when": "view == repolens.changes && (viewItem == repolens.repo || viewItem == repolens.repoStaged)",
+          "group": "4_repository@1"
+        },
+        {
+          "command": "repolens.createStash",
+          "when": "view == repolens.changes && (viewItem == repolens.repo || viewItem == repolens.repoStaged)",
+          "group": "4_repository@2"
+        },
+        {
+          "command": "repolens.applyStash",
+          "when": "view == repolens.changes && (viewItem == repolens.repo || viewItem == repolens.repoStaged)",
+          "group": "4_repository@3"
+        },
+        {
+          "command": "repolens.moveToChangelist",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.folder || viewItem == repolens.repo || viewItem == repolens.repoStaged || viewItem =~ /^repolens\\.changelist/)",
+          "group": "5_changelists@1"
+        },
+        {
+          "command": "repolens.commitSelected",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.folder || viewItem == repolens.repo || viewItem == repolens.repoStaged || viewItem =~ /^repolens\\.changelist/)",
+          "group": "6_selected@1"
+        },
+        {
+          "command": "repolens.stashSelected",
+          "when": "view == repolens.changes && (viewItem == repolens.working || viewItem == repolens.index || viewItem == repolens.folder || viewItem == repolens.repo || viewItem == repolens.repoStaged || viewItem =~ /^repolens\\.changelist/)",
+          "group": "6_selected@2"
+        },
+        {
+          "command": "repolens.activateChangelist",
+          "when": "view == repolens.changes && (viewItem == repolens.changelist || viewItem == repolens.changelistDefault)",
+          "group": "5_changelists@2"
+        },
+        {
+          "command": "repolens.renameChangelist",
+          "when": "view == repolens.changes && viewItem =~ /^repolens\\.changelist/",
+          "group": "5_changelists@3"
+        },
+        {
+          "command": "repolens.deleteChangelist",
+          "when": "view == repolens.changes && (viewItem == repolens.changelist || viewItem == repolens.changelistActive)",
+          "group": "5_changelists@4"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "repolens.openChange",
+          "when": "false"
+        },
+        {
+          "command": "repolens.openFile",
+          "when": "false"
+        },
+        {
+          "command": "repolens.stage",
+          "when": "false"
+        },
+        {
+          "command": "repolens.discard",
+          "when": "false"
+        },
+        {
+          "command": "repolens.unstage",
+          "when": "false"
+        },
+        {
+          "command": "repolens.stageSelected",
+          "when": "repolens.hasWorkingSelection"
+        },
+        {
+          "command": "repolens.unstageSelected",
+          "when": "repolens.hasIndexSelection"
+        },
+        {
+          "command": "repolens.clearSelection",
+          "when": "repolens.hasSelection"
+        },
+        {
+          "command": "repolens.clearFilter",
+          "when": "repolens.hasFilter"
+        },
+        {
+          "command": "repolens.renameChangelist",
+          "when": "false"
+        },
+        {
+          "command": "repolens.deleteChangelist",
+          "when": "false"
+        },
+        {
+          "command": "repolens.activateChangelist",
+          "when": "false"
+        },
+        {
+          "command": "repolens.moveToChangelist",
+          "when": "repolens.hasSelection"
+        },
+        {
+          "command": "repolens.commitSelected",
+          "when": "repolens.hasSelection"
+        },
+        {
+          "command": "repolens.stashSelected",
+          "when": "repolens.hasSelection"
+        }
+      ]
+    },
+    "configurationDefaults": {
+      "git.repositoryScanMaxDepth": 2
+    },
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "repolens.collapseThreshold": {
+          "type": "number",
+          "default": 20,
+          "minimum": 1,
+          "scope": "resource",
+          "description": "%configuration.collapseThreshold%"
+        },
+        "repolens.ignoredFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            ".git",
+            "node_modules",
+            "vendor",
+            "dist",
+            "build",
+            "out",
+            "target",
+            ".venv",
+            "__pycache__"
+          ],
+          "scope": "resource",
+          "description": "%configuration.ignoredFolders%"
+        },
+        "repolens.additionalRepositories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource",
+          "description": "%configuration.additionalRepositories%"
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "repolens.nextChange",
+        "key": "alt+down",
+        "when": "focusedView == repolens.changes && !inputFocus"
+      },
+      {
+        "command": "repolens.previousChange",
+        "key": "alt+up",
+        "when": "focusedView == repolens.changes && !inputFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node scripts/check.cjs",
+    "package": "python3 scripts/build-vsix.py",
+    "package:marketplace": "python3 scripts/package-marketplace.py"
+  },
+  "icon": "assets/icon.png",
+  "qna": "marketplace",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangriyu/jetbrains-style-changes.git"
+  },
+  "homepage": "https://github.com/wangriyu/jetbrains-style-changes#readme",
+  "bugs": {
+    "url": "https://github.com/wangriyu/jetbrains-style-changes/issues"
+  },
+  "galleryScreenshotVersion": "0.2.3"
+}

@@ -1,0 +1,9 @@
+**
+!package.json
+!package.nls*.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+!src/*.js
+!assets/icon.png
+!assets/overview.png

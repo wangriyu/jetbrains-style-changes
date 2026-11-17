@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <rect width="256" height="256" rx="54" fill="#0D2238"/>
+  <path d="M48 72V184M48 128H90" fill="none" stroke="#5EEAD4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="48" cy="72" r="12" fill="#0D2238" stroke="#5EEAD4" stroke-width="6"/>
+  <circle cx="48" cy="128" r="12" fill="#0D2238" stroke="#5EEAD4" stroke-width="6"/>
+  <circle cx="48" cy="184" r="12" fill="#0D2238" stroke="#5EEAD4" stroke-width="6"/>
+  <rect x="86" y="52" width="136" height="152" rx="18" fill="#B8D5E5"/>
+  <rect x="90" y="56" width="128" height="144" rx="14" fill="#17364E"/>
+  <path d="M90 88H218M154 88V200" stroke="#3F667C" stroke-width="3"/>
+  <rect x="101" y="69" width="26" height="6" rx="3" fill="#8CADC0"/>
+  <rect x="135" y="69" width="14" height="6" rx="3" fill="#5EEAD4"/>
+  <path d="M103 108H137M103 128H129M103 148H137M103 168H125" stroke="#83A7BC" stroke-width="6" stroke-linecap="round"/>
+  <rect x="163" y="99" width="46" height="39" rx="6" fill="#255D61"/>
+  <path d="M170 108H202M170 128H194" stroke="#75F1D9" stroke-width="6" stroke-linecap="round"/>
+  <path d="M170 148H202M170 168H190" stroke="#B8D5E5" stroke-width="6" stroke-linecap="round"/>
+  <path d="M174 184H192M183 175V193" stroke="#5EEAD4" stroke-width="5" stroke-linecap="round"/>
+</svg>
